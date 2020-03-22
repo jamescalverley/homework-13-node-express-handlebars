@@ -1,8 +1,7 @@
 
 //! TO-DO LIST
 
-//? Get mysql and database running
-//? run mysql from the command line
+//* COMPLETE Get mysql and database running
 //? Build front end
 //? API calls 
 //? handlebars
@@ -23,10 +22,19 @@ app.use(express.json());
 app.use(express.static('./public'));
 
 
+
+// get burger list
+
+// get devour list
+
+// add new burger
 app.post('/api/addburger', async (res,req) => {
     const result = await orm.addBurger(req.body);
     res.json({response:"Added burger"})
 })
+
+// devour burger 
+
 
 
 
