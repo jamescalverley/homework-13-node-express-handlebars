@@ -3,21 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js'></script>
+
+    <link rel="stylesheet" href="./assets/css/burger_style.css">
+
     <title>Burger</title>
 </head>
 <body>
+
     <div class="jumbotron">
-      <h1 class="display-4">Hello, world!</h1>
-       <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+      <h1 class="display-4">Eat-Da-Burger</h1>
+       <p class="lead">Add a burger to the menu.</p>
       <hr class="my-4">
-      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-      <p class="lead">
-      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-      </p>
+      <form>
+        <div class="form-group">
+          <label for="burgerForm">Add a new burger</label>
+          <input type="text" class="form-control form-control-lg" id="burgerForm" aria-describedby="add-a-new-burger" placeholder="">
+        </div>
+      </form>
+      <a class="btn btn-primary btn-lg" id="submitBtn" href="" role="button">Add</a>
     </div>
 
-    
+    <div class="burger-wrapper">
+      <div class="burger-menu">
+        <h3>Burger Menu</h3>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">burger burger burger</h5>
+            <a href="#" class="btn btn-primary btn-sm">Devour</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="burger-devoured">
+        <h3>Devoured Burgers</h3>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">burger burger burger</h5>
+            <a href="#" class="btn btn-primary btn-sm">Devour</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+   
+
+  <!-- <script src="../models/burger_controller.js"></script> -->
+  <script src="./index.js"></script>
 </body>
 </html>
