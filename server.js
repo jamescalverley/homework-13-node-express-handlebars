@@ -28,17 +28,23 @@ app.use(express.static('./public'));
 
 // get burger list
 app.get('/api/burgerdisplay', async (req,res) => {
+    console.log("API call >>> get burger list");
     const result = await orm.displayBurgerList();
     res.json(result)
-    console.log("API call >>> get burger list")
-
+})
+// get devour list
+app.get('/api/burgerdevour', async (req,res) => {
+    console.log("API call >>>> get devour list");
+    const result = await orm.displayDevourList();
+    res.json(result)
 })
 
-// get devour list
 
 // add new burger
 app.post('/api/addburger', async (req,res) => {
+    
     const result = await orm.addBurger(req.body);
+    console.log("[SERVER - Burger to add:]", req.body)
     res.json({response:"Added burger"})
 })
 

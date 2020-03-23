@@ -73,13 +73,14 @@ async function displayBurgerList(data){
   return burgerList
 }
 
-async function displayDevourList(){
+async function displayDevourList(data){
   const devourList = await db.query('SELECT * FROM burgers WHERE devoured=true');
+  console.log("[devour list ORM]", devourList)
   return devourList
 }
 
 async function addBurger(data){
-  const newBurger = await db.query( 'INSERT INTO burgers (burger_name,devoured) VALUES (?,?)', [ data.burgerName, data.devourStatus ]);
+  const newBurger = await db.query( 'INSERT INTO burgers (burger_name,devoured) VALUES (?,?)', [ data.burger_name, false]);
   return newBurger
 }
 
