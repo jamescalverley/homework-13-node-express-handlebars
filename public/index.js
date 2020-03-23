@@ -2,9 +2,6 @@ window.onload = function() {
   renderStart();
 };
 
-
-
-
 $('#submitBtn').click(function(ev){
   ev.preventDefault();
   console.log("Submit Btn CLICKED")
@@ -28,8 +25,12 @@ async function getDevourList(){
 }
 
 async function addBurger(){
-  let newBurger = $('#burgerForm').val();
-  const result = await $.post('/api/addburger', newBurger)
+  let data = { 
+    burger_name: $('#burgerForm').val(),
+    devoured: false
+  };
+  console.log("adding burger: ", data)
+  const result = await $.post('/api/addburger', data)
   console.log(result)
 }
 

@@ -45,7 +45,8 @@ app.post('/api/addburger', async (req,res) => {
     
     const result = await orm.addBurger(req.body);
     console.log("[SERVER - Burger to add:]", req.body)
-    res.json({response:"Added burger"})
+    console.log("[SERVER RESULT]", result)
+    res.json({response:"Added burger", result})
 })
 
 // devour burger 

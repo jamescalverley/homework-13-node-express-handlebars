@@ -80,7 +80,11 @@ async function displayDevourList(data){
 }
 
 async function addBurger(data){
-  const newBurger = await db.query( 'INSERT INTO burgers (burger_name,devoured) VALUES (?,?)', [ data.burger_name, false]);
+  let test = [ data.burger_name, false ]
+  console.log("[ORM -test- Burger to add: ]", test)
+  const newBurger = await db.query( 'INSERT INTO burgers (burger_name,devoured) VALUES (?, false)', [ data.burger_name]);
+
+  console.log("[ORM added burger to db]", newBurger)
   return newBurger
 }
 
