@@ -16,6 +16,7 @@ async function getBurgerList(){
   console.log("getBurgerList API Call ----")
   let result = await $.get('/api/burgerdisplay');
   console.log("[Burger List]", result)
+  renderBurgerMenu();
 }
 
 async function getDevourList(){
@@ -34,12 +35,21 @@ async function addBurger(){
   console.log(result)
 }
 
+
+async function renderBurgerMenu(){
+  $.get('/api/burgerdisplay')
+  .then( result => {
+    console.log("BURGER MENU", result)
+  } )
+}
+
 async function renderStart(){
   //add functions for on page load
   console.log("PAGE LOADED ---- START");
   getBurgerList();
   getDevourList();
 };
+
 
 
 

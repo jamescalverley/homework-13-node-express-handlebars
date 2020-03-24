@@ -9,11 +9,40 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js'></script>
 
+    <!-- <script src="../views/layouts/index.handlebars"></script> -->
+    <!-- handlebars cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.3/handlebars.min.js"></script>
+
     <link rel="stylesheet" href="./assets/css/burger_style.css">
 
     <title>Burger</title>
 </head>
 <body>
+
+    <div id="handlebars-test"></div>
+    <div id="handlebars-test2" type="text/x-handlebars-template"></div>
+
+    <script type="text/javascript">
+
+      const burgerList = "<h2>Burger: {{burger1}}, Burger: {{burger2}}, Burger: {{burger3}}</h2>";
+    
+      const template = Handlebars.compile(burgerList);
+
+      const data = template(
+        {
+          burger1: "cheese burger", 
+          burger2: "chicken burger", 
+          burger3: "turkey burger"
+        });
+
+      $('#handlebars-test').html(data);
+    
+    
+    
+    </script>
+
+    
 
     <div class="jumbotron">
       <h1 class="display-4">Eat-Da-Burger</h1>
@@ -27,6 +56,8 @@
       </form>
       <a class="btn btn-primary btn-lg" id="submitBtn" href="" role="button">Add</a>
     </div>
+
+
 
     <div class="burger-wrapper">
       <div class="burger-menu">
@@ -55,6 +86,20 @@
    
 
   <!-- <script src="../models/burger_controller.js"></script> -->
+
+  <!-- <script>
+    // compile the template
+    const template = Handlebars.compile("Handlebars <b>{{burger_name}}</b>");
+    // execute the compiled template and print the output to the console
+    console.log(template({ doesWhat: "rocks!" }));
+  </script>
+  <script id="handlebars-demo" type="text/x-handlebars-template">
+    {{#each burgers}}
+      New Burger: {{burger_name}}
+    {{/each}}
+    <div></div>
+ </script> -->
+ 
   <script src="./index.js"></script>
 </body>
 </html>
