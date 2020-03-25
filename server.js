@@ -57,7 +57,7 @@ app.get('/api/burgerlist', async (req,res) => {
 // })
 
 // get devour list
-app.get('/api/burgerdevour', async (req,res) => {
+app.get('/api/burgerdevourlist', async (req,res) => {
     console.log("API call >>>> get devour list");
     const result = await orm.getDevourList();
     res.send(result)

@@ -10,7 +10,6 @@ $('#submitBtn').click(function(ev){
   addBurger();
 });
 
-
 async function displayBurgerList(){
   $.get('/api/burgerlist')
   .then( result => {
@@ -19,22 +18,32 @@ async function displayBurgerList(){
     result.forEach(element => {
       card += 
       `<div class="card">
-      <div class="card-body">
+        <div class="card-body">
         <h5 class="card-title">${element.burger_name}</h5>
         <a href="#" class="btn btn-primary btn-sm" data-burgerID="${element.id}">Devour</a>
-      </div>
-    </div>`
+        </div>
+      </div>`
     })
-    $('.burger-menu').html(card)
+    $('.burger-list').html(card)
   })
-  
-  
 }
 
 async function displayDevourList(){
-  console.log("getDevourList API Call ----")
-  let result = await $.get('/api/burgerdevour');
-  console.log("[Devour List]", result)
+  $.get('/api/burgerdevourlist')
+  .then( result => {
+    console.log("[DEVOUR LIST]", result)
+    let card = '';
+    result.forEach(element => {
+      card +=
+      `<div class="card">
+        <div class="card-body">
+        <h5 class="card-title">${element.burger_name}</h5>
+        <a href="#"class="btn btn-primary btn-sm" data-burgerID="${element.id}" style="display:none">Devour</a>
+        </div>
+      </div>`
+    })
+    $('.burger-list-devoured').html(card)  
+  })
 }
 
 async function addBurger(){
@@ -44,7 +53,9 @@ async function addBurger(){
   };
   console.log("adding burger: ", data)
   const result = await $.post('/api/addburger', data)
-  console.log(result)
+  console.log(result);
+  $('#burgerForm').val('');
+  renderStart();
 }
 
 // issue with for each function. result is not a array. for each needs to run through an array to work 
