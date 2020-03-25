@@ -33,33 +33,33 @@ app.get('/', async (req,res) => {
     res.sendFile('./public/index.html');
 })
 
-// get burger list
-// app.get('/api/burgerdisplay', async (req,res) => {
-//     console.log("API call >>> get burger list");
-//     const result = await orm.displayBurgerList();
-//     res.send(result)
-// })
-
-//handlebars render
-app.get('/api/burgerdisplay', async (req,res) => {
-    const result = await orm.displayBurgerList();
-    data = { 
-        burgers: []
-    };
-    result.forEach( burger => {
-        data.burgers.push(burger)
-    });
-    console.log("ready to render >>>:", data)
-    
-    // res.send(data)
-    //render with handlebars
-    res.render("index", data)
+//get burger list
+app.get('/api/burgerlist', async (req,res) => {
+    console.log("API call >>> get burger list");
+    const result = await orm.getBurgerList();
+    res.send(result)
 })
+
+// //handlebars render
+// app.get('/api/burgerdisplay', async (req,res) => {
+//     const result = await orm.displayBurgerList();
+//     data = { 
+//         burgers: []
+//     };
+//     result.forEach( burger => {
+//         data.burgers.push(burger)
+//     });
+//     console.log("ready to render >>>:", data)
+    
+//     // res.send(data)
+//     //render with handlebars
+//     res.render("index", data)
+// })
 
 // get devour list
 app.get('/api/burgerdevour', async (req,res) => {
     console.log("API call >>>> get devour list");
-    const result = await orm.displayDevourList();
+    const result = await orm.getDevourList();
     res.send(result)
 })
 

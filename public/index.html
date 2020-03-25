@@ -20,7 +20,9 @@
 </head>
 <body>
 
-    <div id="handlebars-test"></div>
+  <!-- HANDELBARS TESTING -->
+    <!-- <div id="handlebars-test"></div>
+    <div id="handlebars-testCard"></div>
     <div id="handlebars-test2" type="text/x-handlebars-template"></div>
 
     <script type="text/javascript">
@@ -37,12 +39,27 @@
         });
 
       $('#handlebars-test').html(data);
-    
-    
-    
-    </script>
 
-    
+      const burgerCard = `<div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{burgerOne}}</h5>
+            <a href="#" class="btn btn-primary btn-sm">Devour</a>
+          </div>
+        </div>`
+
+        const templateCard = Handlebars.compile(burgerCard);
+
+        const dataOne = templateCard({
+          burgerOne: "Double Bacon Cheeseburger"
+        });
+
+      $('#handlebars-testCard').html(dataOne);
+
+      const burgers = [ "hamburger", "cheeseburger", "chicken burger"];
+
+    // add {{#each buger}}  card html {{/each}} -->
+
+    </script>
 
     <div class="jumbotron">
       <h1 class="display-4">Eat-Da-Burger</h1>

@@ -67,13 +67,13 @@ const db = new Database({
   });
 //! from connection.js =================
 
-async function displayBurgerList(data){
+async function getBurgerList(data){
   const burgerList = await db.query(`SELECT * FROM burgers WHERE devoured=false`);
   console.log("[burger list ORM]", burgerList)
   return burgerList
 }
 
-async function displayDevourList(data){
+async function getDevourList(data){
   const devourList = await db.query('SELECT * FROM burgers WHERE devoured=true');
   console.log("[devour list ORM]", devourList)
   return devourList
@@ -94,8 +94,8 @@ async function devourBurger(data){
 }
 
 module.exports = {
-  displayBurgerList,
-  displayDevourList,
+  getBurgerList,
+  getDevourList,
   addBurger,
   devourBurger
 }
