@@ -79,7 +79,10 @@ app.post('/api/devour', async (req,res) => {
 })
 
 //reset
-app.delete('')
+app.delete('/api/reset', async (req,res) => {
+    const result = await orm.reset(req.body);
+    res.json({ response: "burger reset", result})
+})
 
 
 

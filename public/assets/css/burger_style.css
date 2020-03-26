@@ -1,6 +1,7 @@
 .jumbotron {
   text-align: center;
   justify-content: center;
+  padding: 10px;
 }
 
 .burger-wrapper {
@@ -9,21 +10,25 @@
   justify-content: center;
   padding: 10px; 
   min-height: 600px;
-  background-color: cornflowerblue;
+  
 }
 
 .burger-menu {
   width: 400px;
-  margin: 50px 50px 50px 50px;
+  margin: 0px 50px 50px 50px;
   padding: 30px;
-  background-color: cornsilk;
+  background-color: darkgrey;
 }
 
 .burger-devoured {
   width: 400px;
-  margin: 50px 50px 50px 50px;
+  margin: 0px 50px 50px 50px;
   padding: 30px;
-  background-color: darkcyan;
+  background-color: darkgrey;
+}
+
+.card {
+  background-color: white;
 }
 
 

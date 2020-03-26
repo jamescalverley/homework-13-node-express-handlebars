@@ -12,13 +12,19 @@ $('#submitBtn').click(function(event){
   } else {
     alert("Please enter a burger name!")
   }
-  
 });
 
-// $('.devourBtn').click(function(event){
-//   event.preventDefault();
-//   console.log("---devourBtn CLICKED---");
-// })
+$('#resetBtn').click(function(event){
+  event.preventDefault();
+  console.log("--RESET button clicked--")
+    if(confirm("Are you sure you want to reset ALL BURGERS?")){
+      console.log("reset");
+      reset();
+    } else {
+      return
+    }
+  
+})
 
 async function displayBurgerList(){
   $.get('/api/burgerlist')
@@ -80,6 +86,17 @@ async function devourBurger(){
 
   const result = await $.post('/api/devour', data)
   console.log("[Devour Burger]", result)
+  renderStart();
+}
+
+async function reset(){
+
+  let deleteData = {}
+  let result = await $.ajax({
+    url:'/api/reset',
+    type:'DELETE',
+    data:deleteData});
+  console.log("[SERVER - resetFunction]")
   renderStart();
 }
 

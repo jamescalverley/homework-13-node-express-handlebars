@@ -94,10 +94,17 @@ async function devourBurger(data){
   return devourBurger
 }
 
+async function reset(){
+  const reset = await db.query('DELETE FROM burgers WHERE id>0')
+  console.log("[ORM - RESET]")
+  return reset
+}
+
 module.exports = {
   getBurgerList,
   getDevourList,
   addBurger,
-  devourBurger
+  devourBurger,
+  reset
 }
 
