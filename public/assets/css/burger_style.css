@@ -2,14 +2,21 @@
   text-align: center;
   justify-content: center;
   padding: 10px;
+  margin-bottom: 0px;
+}
+
+.form-group {
+  margin-left: 200px;
+  margin-right: 200px;
 }
 
 .burger-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding: 10px; 
+  padding-top: 40px; 
   min-height: 600px;
+  background-color: #f5b042;
   
 }
 

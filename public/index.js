@@ -23,7 +23,6 @@ $('#resetBtn').click(function(event){
     } else {
       return
     }
-  
 })
 
 async function displayBurgerList(){
@@ -71,7 +70,7 @@ async function addBurger(){
   const result = await $.post('/api/addburger', data)
   console.log(result);
   $('#burgerForm').val('');
-  renderStart();
+  displayBurgerList();
 }
 
 async function devourBurger(){
@@ -86,7 +85,8 @@ async function devourBurger(){
 
   const result = await $.post('/api/devour', data)
   console.log("[Devour Burger]", result)
-  renderStart();
+  displayBurgerList();
+  displayDevourList();
 }
 
 async function reset(){
@@ -97,7 +97,8 @@ async function reset(){
     type:'DELETE',
     data:deleteData});
   console.log("[SERVER - resetFunction]")
-  renderStart();
+  displayBurgerList();
+  displayDevourList();
 }
 
 async function renderStart(){
