@@ -89,7 +89,8 @@ async function addBurger(data){
 }
 
 async function devourBurger(data){
-  const devourBurger = await db.query('UPDATE burgers (burger_name, devoured) V.......', [ data.burgerName, data.devourStatus ])
+  console.log("[ORM - devour]", data)
+  const devourBurger = await db.query('UPDATE burgers SET devoured=true WHERE id=?', [ data.id ])
   return devourBurger
 }
 

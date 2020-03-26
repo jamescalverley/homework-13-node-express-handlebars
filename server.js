@@ -72,8 +72,14 @@ app.post('/api/addburger', async (req,res) => {
 })
 
 // devour burger 
+app.post('/api/devour', async (req,res) => {
+    const result = await orm.devourBurger(req.body);
+    console.log("[SERVER - devour burger]", result)
+    res.json({ response: "devoured burger", result})
+})
 
-
+//reset
+app.delete('')
 
 
 

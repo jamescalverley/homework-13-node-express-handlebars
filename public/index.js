@@ -2,13 +2,23 @@ window.onload = function() {
   renderStart();
 };
 
-$('#submitBtn').click(function(ev){
-  ev.preventDefault();
+$('#submitBtn').click(function(event){
+  event.preventDefault();
   console.log("Submit Btn CLICKED")
   const newBurger = $('#burgerForm').val();
   console.log("[Burger to add:]", newBurger );
-  addBurger();
+  if( newBurger ){
+    addBurger();
+  } else {
+    alert("Please enter a burger name!")
+  }
+  
 });
+
+// $('.devourBtn').click(function(event){
+//   event.preventDefault();
+//   console.log("---devourBtn CLICKED---");
+// })
 
 async function displayBurgerList(){
   $.get('/api/burgerlist')
@@ -20,7 +30,7 @@ async function displayBurgerList(){
       `<div class="card">
         <div class="card-body">
         <h5 class="card-title">${element.burger_name}</h5>
-        <a href="#" class="btn btn-primary btn-sm" data-burgerID="${element.id}">Devour</a>
+        <a href="" onclick="devourBurger(event)" class="btn btn-primary btn-sm devourBtn" data-burgerID="${element.id}">Devour</a>
         </div>
       </div>`
     })
@@ -38,7 +48,7 @@ async function displayDevourList(){
       `<div class="card">
         <div class="card-body">
         <h5 class="card-title">${element.burger_name}</h5>
-        <a href="#"class="btn btn-primary btn-sm" data-burgerID="${element.id}" style="display:none">Devour</a>
+        <a href="" class="btn btn-primary btn-sm" data-burgerID="${element.id}" style="display:none">Devour</a>
         </div>
       </div>`
     })
@@ -58,22 +68,20 @@ async function addBurger(){
   renderStart();
 }
 
-// issue with for each function. result is not a array. for each needs to run through an array to work 
+async function devourBurger(){
+  event.preventDefault();
+  let burgerID = event.target.dataset.burgerid;
+  let data = {
+    id: burgerID
+  }
+  console.log("burger devour button clicked")
+  console.log("[Burger ID]", burgerID)
+  console.log("[Data]", data)
 
-// async function renderBurgerMenu(){
-//   const result = await $.get('/api/burgerdisplay')
-//   .then( result => {
-//     console.log("BURGER MENU", result)
-//     const burgers = []
-//     result.forEach(( element) => {
-//       burgers.push(element.burger_name)
-//       console.log("BURGER LIST", burgers);
-//     })
-//   } )
-// }
-
-
-
+  const result = await $.post('/api/devour', data)
+  console.log("[Devour Burger]", result)
+  renderStart();
+}
 
 async function renderStart(){
   //add functions for on page load
