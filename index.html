@@ -19,48 +19,6 @@
     <title>Burger</title>
 </head>
 <body>
-
-  <!-- HANDELBARS TESTING -->
-    <!-- <div id="handlebars-test"></div>
-    <div id="handlebars-testCard"></div>
-    <div id="handlebars-test2" type="text/x-handlebars-template"></div>
-
-    <script type="text/javascript">
-
-      const burgerList = "<h2>Burger: {{burger1}}, Burger: {{burger2}}, Burger: {{burger3}}</h2>";
-    
-      const template = Handlebars.compile(burgerList);
-
-      const data = template(
-        {
-          burger1: "cheese burger", 
-          burger2: "chicken burger", 
-          burger3: "turkey burger"
-        });
-
-      $('#handlebars-test').html(data);
-
-      const burgerCard = `<div class="card">
-          <div class="card-body">
-            <h5 class="card-title">{{burgerOne}}</h5>
-            <a href="#" class="btn btn-primary btn-sm">Devour</a>
-          </div>
-        </div>`
-
-        const templateCard = Handlebars.compile(burgerCard);
-
-        const dataOne = templateCard({
-          burgerOne: "Double Bacon Cheeseburger"
-        });
-
-      $('#handlebars-testCard').html(dataOne);
-
-      const burgers = [ "hamburger", "cheeseburger", "chicken burger"];
-
-    // add {{#each buger}}  card html {{/each}} -->
-
-    </script>
-
     <div class="jumbotron">
       <h1 class="display-4">Eat-Da-Burger</h1>
        <p class="lead">Add a burger to the menu.</p>
@@ -98,29 +56,8 @@
             </div>
           </div> -->
         </div>
-        
       </div>
-
     </div>
-
-
-   
-
-  <!-- <script src="../models/burger_controller.js"></script> -->
-
-  <!-- <script>
-    // compile the template
-    const template = Handlebars.compile("Handlebars <b>{{burger_name}}</b>");
-    // execute the compiled template and print the output to the console
-    console.log(template({ doesWhat: "rocks!" }));
-  </script>
-  <script id="handlebars-demo" type="text/x-handlebars-template">
-    {{#each burgers}}
-      New Burger: {{burger_name}}
-    {{/each}}
-    <div></div>
- </script> -->
- 
   <script src="./index.js"></script>
 </body>
 </html>

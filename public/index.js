@@ -25,6 +25,7 @@ $('#resetBtn').click(function(event){
     }
 })
 
+//* displaying with regular HTML
 async function displayBurgerList(){
   $.get('/api/burgerlist')
   .then( result => {
@@ -42,6 +43,15 @@ async function displayBurgerList(){
     $('.burger-list').html(card)
   })
 }
+
+async function displayBurgerHandlebars(){
+  console.log("[handlebars call]");
+  $.get('/api/burgerlist')
+  .then( result => {
+    console.log("[burgerlist HB]", result)
+  })
+}
+
 
 async function displayDevourList(){
   $.get('/api/burgerdevourlist')
@@ -70,7 +80,7 @@ async function addBurger(){
   const result = await $.post('/api/addburger', data)
   console.log(result);
   $('#burgerForm').val('');
-  displayBurgerList();
+  // displayBurgerList();
 }
 
 async function devourBurger(){
@@ -85,12 +95,11 @@ async function devourBurger(){
 
   const result = await $.post('/api/devour', data)
   console.log("[Devour Burger]", result)
-  displayBurgerList();
+  displayBurgerList();          
   displayDevourList();
 }
 
 async function reset(){
-
   let deleteData = {}
   let result = await $.ajax({
     url:'/api/reset',
@@ -104,8 +113,9 @@ async function reset(){
 async function renderStart(){
   //add functions for on page load
   console.log("PAGE LOADED ---- START");
-  displayBurgerList();
-  displayDevourList();
+  //displayBurgerList();
+  // displayDevourList();
+  // displayBurgerHandlebars()
 };
 
 
