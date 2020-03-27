@@ -34,7 +34,7 @@ app.use(express.json());
 
 // app.use(express.static('./public'));
 
-const burgerList = [
+const testList = [
     {
         burger_name: "hamburger"
     },
@@ -43,10 +43,9 @@ const burgerList = [
     }
 ]
 
-
 app.get('/', async (req,res) => {
 
-    const resultBurgers = burgerList;
+    const resultBurgers = testList;
 
     res.render('burger', {burgers: resultBurgers })
 })
